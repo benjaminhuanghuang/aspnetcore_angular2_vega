@@ -26,5 +26,12 @@ if (env.IsDevelopment())
     add 
     export ASPNETCORE_ENVIRONMENT=Development
  
-use dotnet-watch to push push server side changes to browser
-
+Use dotnet-watch to restart server when server side files changed
+add referenct to .csproj 
+```xml
+<ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+</ItemGroup>
+```
+$ dotnet watch
+$ dotnet watch run
