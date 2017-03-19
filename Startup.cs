@@ -27,7 +27,8 @@ namespace WebApplicationBasic
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   // Used for dependency injection. services is the container for all the 
+            // dependencies in application
             // Add framework services.
             services.AddMvc();
         }
@@ -35,12 +36,18 @@ namespace WebApplicationBasic
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            // Add console as log, can be replaced with file or database in real application
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            // write Debug.Write into log
             loggerFactory.AddDebug();
 
+            // In the rest part of this function, all funciton call app.UesXXXXX() are used
+            // to add middleware into processing pipeline
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                // webpack will automatically compile js and css when they are changed
+                // add push the changes to brower.
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     HotModuleReplacement = true
                 });

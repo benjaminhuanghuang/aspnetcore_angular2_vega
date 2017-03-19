@@ -15,10 +15,10 @@ namespace WebApplicationBasic
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
+                .UseStartup<Startup>()  // start with Startup class
                 .Build();
 
-            host.Run();
+            host.Run();    // kestrel start listening on port 5000
         }
     }
 }
