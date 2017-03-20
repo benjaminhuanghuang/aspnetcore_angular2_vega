@@ -12,7 +12,6 @@
 
     $ yo aspnetcore-spa
 
-
 ## Docker
 * Download image
 
@@ -25,3 +24,13 @@
 * Copy sql server error log
 
     $ docker cp <container>:/var/opt/mssql/log/errorlog . 
+
+## Webpack
+* Compile third part js lib to /wwwroot/dist and ClientApp/dist
+    
+    $ webpack --config webpack.config.vendor.js
+
+* Compile ts file to /wwwroot/dist
+
+    $ webpack --config webpack.config.js
+    
