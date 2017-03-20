@@ -7,6 +7,10 @@
     
     Install ‘code’ command in PATH
 
+## Yeoman
+    $ npm install -g yo generator-aspnetcore-spa 
+
+    $ yo aspnetcore-spa
 
 
 ## Docker
